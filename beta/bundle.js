@@ -20054,6 +20054,7 @@
 	  }, {
 	    key: 'onTouchMove',
 	    value: function onTouchMove(e) {
+	      log.debug('Called %conTouchMove.', _utils2.default.getConsoleStyle('code'));
 	      this.onPointerMove(e.touches[0]);
 	    }
 
@@ -20475,6 +20476,14 @@
 	      this.updateState();
 	    }
 	  }, {
+	    key: 'onTouchStartHandler',
+	    value: function onTouchStartHandler(tileIndex, _ref3) {
+	      var pointerLocation = _ref3.pageX;
+
+	      log.debug('Called %conTouchStartHandler', _utils2.default.getConsoleStyle('code'));
+	      this.onTileDownHandler(tileIndex, { pageX: pointerLocation });
+	    }
+	  }, {
 	    key: 'onPointerUp',
 	    value: function onPointerUp(e) {
 	      var _this3 = this;
@@ -20544,10 +20553,10 @@
 	      var html = _react2.default.createElement(
 	        _reactMotion.Motion,
 	        { style: tileStyle, key: tileIndex },
-	        function (_ref3) {
-	          var scale = _ref3.scale;
-	          var shadow = _ref3.shadow;
-	          var offsetX = _ref3.offsetX;
+	        function (_ref4) {
+	          var scale = _ref4.scale;
+	          var shadow = _ref4.shadow;
+	          var offsetX = _ref4.offsetX;
 
 	          if (_this5.lastOffsets[tileIndex] === offsetX) {
 	            _this5.lastOffsetsUnchanged[tileIndex] = true;
@@ -20556,10 +20565,10 @@
 	          }
 	          _this5.lastOffsets[tileIndex] = offsetX;
 	          return _react2.default.createElement(_Tile2.default, { onMouseDownHandler: _this5.onTileDownHandler.bind(_this5, tileIndex),
-	            onTouchStartHandler: _this5.onTileDownHandler.bind(_this5, tileIndex),
+	            onTouchStartHandler: _this5.onTouchStartHandler.bind(_this5, tileIndex),
 	            onDoubleClick: _this5.onDoubleClick.bind(_this5, tileIndex),
-	            value: tileValue, ref: function ref(_ref4) {
-	              return _this5.tileRefs[tileIndex] = _ref4;
+	            value: tileValue, ref: function ref(_ref5) {
+	              return _this5.tileRefs[tileIndex] = _ref5;
 	            },
 	            customStyles: {
 	              boxShadow: 'rgba(0, 0, 0, 0.2) 0px ' + shadow + 'px ' + 2 * shadow + 'px 0px',
