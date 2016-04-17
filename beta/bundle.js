@@ -20041,7 +20041,7 @@
 	    value: function onPointerMove(_ref) {
 	      var pageX = _ref.pageX;
 
-	      // console.log(`Calling %conPointerMove(pageX: ${pageX}}).`, Utils.getConsoleStyle('code'));
+	      //  console.log(`Calling %conPointerMove(pageX: ${pageX}}).`, Utils.getConsoleStyle('code'));
 	      // Update the state with the current cursor's location to be used when rendering the active tile later
 	      this.currentState.animating.mouseLocation = pageX;
 	      this.updateState();
@@ -20054,7 +20054,7 @@
 	  }, {
 	    key: 'onTouchMove',
 	    value: function onTouchMove(e) {
-	      log.debug('Called %conTouchMove.', _utils2.default.getConsoleStyle('code'));
+	      //console.log('Called %conTouchMove.', Utils.getConsoleStyle('code'));
 	      this.onPointerMove(e.touches[0]);
 	    }
 
@@ -20088,7 +20088,7 @@
 	    key: 'updateState',
 	    value: function updateState(options) {
 	      if (options && options.debug) {
-	        console.log('Updating state:', this.currentState);
+	        //console.log('Updating state:', this.currentState);
 	      }
 	      this.setState((0, _reactAddonsUpdate2.default)(this.state, { $set: this.currentState }));
 	    }
@@ -20098,10 +20098,10 @@
 	      var originalTile = this.currentState.animating.tiles[index];
 	      this.currentState.animating.tiles[index] = newTile;
 	      if (originalTile.number === newTile.number) {
-	        console.trace('Updated tile ' + originalTile.number + ':', JSON.stringify(originalTile), '=>', JSON.stringify(newTile));
+	        //console.trace(`Updated tile ${originalTile.number}:`, JSON.stringify(originalTile), '=>', JSON.stringify(newTile));
 	      } else {
-	        console.trace('Updated tile ' + originalTile.number + ' -> ' + newTile.number + ':', JSON.stringify(originalTile), '=>', JSON.stringify(newTile));
-	      }
+	          //console.trace(`Updated tile ${originalTile.number} -> ${newTile.number}:`, JSON.stringify(originalTile), '=>', JSON.stringify(newTile));
+	        }
 	      this.updateState();
 	    }
 	  }, {
@@ -20432,9 +20432,8 @@
 
 	  }, {
 	    key: 'onTileDownHandler',
-	    value: function onTileDownHandler(tileIndex, _ref2) {
-	      var mouseLocation = _ref2.pageX;
-
+	    value: function onTileDownHandler(tileIndex, e) {
+	      var mouseLocation = e.pageX;
 	      console.log('Calling %conTileDownHandler(tileIndex: ' + tileIndex + ', mouseLocation: ' + mouseLocation + ').', _utils2.default.getConsoleStyle('code'));
 
 	      // TODO: Wait for the tiles to drift back and finish animating (stop moving) before allowing another animation to take place
@@ -20477,11 +20476,11 @@
 	    }
 	  }, {
 	    key: 'onTouchStartHandler',
-	    value: function onTouchStartHandler(tileIndex, _ref3) {
-	      var pointerLocation = _ref3.pageX;
-
-	      log.debug('Called %conTouchStartHandler', _utils2.default.getConsoleStyle('code'));
-	      this.onTileDownHandler(tileIndex, { pageX: pointerLocation });
+	    value: function onTouchStartHandler(tileIndex, e) {
+	      console.log('Called %conTouchStartHandler(tileIndex: ' + tileIndex + ', e: ' + e + ')', _utils2.default.getConsoleStyle('code'));
+	      window.e = e.changedTouches;
+	      this.onTileDownHandler(tileIndex, { pageX: e.touches[0].pageX });
+	      e.preventDefault();
 	    }
 	  }, {
 	    key: 'onPointerUp',
@@ -20499,17 +20498,17 @@
 
 	            if (!isPostAnimating()) {
 	              (function () {
-	                console.log('Not post animating anymore.');
+	                //console.log('Not post animating anymore.');
 	                var finalNumbersHash = {};
 	                var finalNumbers = [];
-	                console.log('Numbers before swap:', _this4.currentState.numbers);
+	                //console.log('Numbers before swap:', this.currentState.numbers);
 	                _this4.currentState.animating.tiles.forEach(function (tile) {
 	                  finalNumbersHash[tile.targetIndex] = tile.number;
 	                });
 	                for (var i = 0; i < _this4.currentState.numbers.length; i++) {
 	                  finalNumbers.push(finalNumbersHash[i]);
 	                }
-	                console.log('Numbers after swap:', finalNumbers);
+	                //console.log('Numbers after swap:', finalNumbers);
 	                _this4.currentState.numbers = finalNumbers;
 	                _this4.animationMode = false;
 	                _this4.justFinishedAnimation = true;
@@ -20553,10 +20552,10 @@
 	      var html = _react2.default.createElement(
 	        _reactMotion.Motion,
 	        { style: tileStyle, key: tileIndex },
-	        function (_ref4) {
-	          var scale = _ref4.scale;
-	          var shadow = _ref4.shadow;
-	          var offsetX = _ref4.offsetX;
+	        function (_ref2) {
+	          var scale = _ref2.scale;
+	          var shadow = _ref2.shadow;
+	          var offsetX = _ref2.offsetX;
 
 	          if (_this5.lastOffsets[tileIndex] === offsetX) {
 	            _this5.lastOffsetsUnchanged[tileIndex] = true;
@@ -20567,8 +20566,8 @@
 	          return _react2.default.createElement(_Tile2.default, { onMouseDownHandler: _this5.onTileDownHandler.bind(_this5, tileIndex),
 	            onTouchStartHandler: _this5.onTouchStartHandler.bind(_this5, tileIndex),
 	            onDoubleClick: _this5.onDoubleClick.bind(_this5, tileIndex),
-	            value: tileValue, ref: function ref(_ref5) {
-	              return _this5.tileRefs[tileIndex] = _ref5;
+	            value: tileValue, ref: function ref(_ref3) {
+	              return _this5.tileRefs[tileIndex] = _ref3;
 	            },
 	            customStyles: {
 	              boxShadow: 'rgba(0, 0, 0, 0.2) 0px ' + shadow + 'px ' + 2 * shadow + 'px 0px',
