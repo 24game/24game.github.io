@@ -145,8 +145,8 @@ code {
   position: relative;
   font-size: 4.5rem;
   cursor: pointer;
-  font-family: "Times New Roman";
-  font-weight: 900;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
   color: #879093;
   width: 6rem;
   height: 6rem;
@@ -166,13 +166,9 @@ code {
     background-color: transparent;
     color: #37291a;
     transition: inherit; }
-  .operator-tile:hover {
-    background-color: #d8dadb;
-    color: #494f51;
-    border: 4px dashed #afb5b7; }
-    .operator-tile:hover .operator {
-      font-size: 5.175rem;
-      color: inherit; }
+  .operator-tile:hover .operator {
+    font-size: 5.175rem;
+    color: inherit; }
   .operator-tile:active {
     background: #afb5b7;
     border: 4px dashed #879093; }
