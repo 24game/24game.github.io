@@ -116,13 +116,13 @@ code {
 
 .parenthesis-tile {
   position: relative;
-  font-size: 4.5rem;
+  font-size: 4.05rem;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: initial;
   width: 2rem;
-  height: 10rem;
+  height: 9rem;
   margin: 0.5rem;
   border: initial;
   border-radius: 35%;
@@ -143,10 +143,10 @@ code {
 
 .operator-tile {
   position: relative;
-  font-size: 4.5rem;
+  font-size: 4.05rem;
   cursor: pointer;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+  font-family: "Times New Roman";
+  font-weight: 900;
   color: #879093;
   width: 6rem;
   height: 6rem;
@@ -166,26 +166,30 @@ code {
     background-color: transparent;
     color: #37291a;
     transition: inherit; }
-  .operator-tile:hover .operator {
-    font-size: 5.175rem;
-    color: inherit; }
+  .operator-tile:hover {
+    background-color: #d8dadb;
+    color: #494f51;
+    border: 4px dashed #afb5b7; }
+    .operator-tile:hover .operator {
+      font-size: 4.6575rem;
+      color: inherit; }
   .operator-tile:active {
     background: #afb5b7;
     border: 4px dashed #879093; }
     .operator-tile:active .operator {
-      font-size: 6.21rem; }
+      font-size: 5.589rem; }
 
 .number-tile {
   margin-left: 1rem;
   margin-right: 1rem;
   position: relative;
-  font-size: 4.5rem;
+  font-size: 4.05rem;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: #37291a;
-  width: 10rem;
-  height: 10rem;
+  width: 9rem;
+  height: 9rem;
   margin: 0.5rem;
   border: 4px dashed transparent;
   border-radius: 6px;
@@ -217,19 +221,20 @@ code {
 
 .equal-sign {
   position: relative;
-  font-size: 5.4rem;
+  font-size: 4.86rem;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: #37291a;
   width: initial;
-  height: 10rem;
-  margin: 4.5rem;
+  height: 9rem;
+  margin: 4rem;
   border: initial;
   border-radius: initial;
   background-color: transparent;
   transition: background-color 75ms ease-out;
-  transition: font-size 75ms ease-in-out; }
+  transition: font-size 75ms ease-in-out;
+  margin-right: 2rem; }
   .equal-sign .equals {
     position: absolute;
     top: 50%;
@@ -238,21 +243,17 @@ code {
 
 .result-display {
   position: relative;
-  font-size: 5.4rem;
+  font-size: 4.86rem;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: #37291a;
   width: initial;
-  height: 10rem;
+  height: initial;
   margin: 2rem;
   border: initial;
   border-radius: initial;
   background-color: transparent;
   transition: background-color 75ms ease-out;
-  transition: font-size 75ms ease-in-out; }
-  .result-display .result {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%); }
+  transition: font-size 75ms ease-in-out;
+  width: 5rem; }
