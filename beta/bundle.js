@@ -19856,6 +19856,8 @@
 	    _this.tileRefs = [];
 	    _this.lastOffsets = [0, 0, 0, 0];
 	    _this.lastOffsetsUnchanged = [true, true, true, true];
+	    _this.lastTouchTimes = [];
+	    window.lastTouchTimes = _this.lastTouchTimes;
 	    _this.state = {
 	      /* An array of 4 numbers */
 	      numbers: _utils2.default.shuffle(_utils2.default.getRandomPuzzle(props.puzzles)),
@@ -19901,6 +19903,7 @@
 	      window.getStaticTileOffset = _this.getStaticTileOffsetByTargetIndex.bind(_this);
 	      window.getDynamicTileOffsetByTargetIndex = _this.getDynamicTileOffsetByTargetIndex.bind(_this);
 	      window.getDynamicTileByTargetIndex = _this.getDynamicTileByTargetIndex.bind(_this);
+	      window.parenthesize = _this.parenthesize.bind(_this);
 	    }
 
 	    /* React's new ES6 class-based components do not have `this` autobinded */
@@ -19976,6 +19979,7 @@
 	  }, {
 	    key: 'onDoubleClick',
 	    value: function onDoubleClick(tileIndex) {
+	      console.log('Called %conDoubleClick.', _utils2.default.getConsoleStyle('code'));
 	      this.parenthesize(tileIndex);
 	    }
 
@@ -19985,6 +19989,7 @@
 	  }, {
 	    key: 'parenthesize',
 	    value: function parenthesize(tileIndex) {
+	      console.log('Called %cparenthesize(tileIndex: ' + tileIndex, _utils2.default.getConsoleStyle('code'));
 	      // If the clicked tile is parenthesized already, then unparenthesize it.
 	      if (tileIndex === this.currentState.parentheses[0] || tileIndex === this.currentState.parentheses[1]) {
 	        this.clearParentheses();
@@ -20475,11 +20480,31 @@
 	      this.updateState();
 	    }
 	  }, {
+	    key: 'isDoubleTap',
+	    value: function isDoubleTap() {
+	      if (this.lastTouchTimes.length <= 1) {
+	        return false;
+	      }
+	      var tappedTwice = this.lastTouchTimes[1] - this.lastTouchTimes[0] <= 300;
+	      // Only keep the last 2 elements at all times
+	      this.lastTouchTimes = this.lastTouchTimes.slice(-2);
+	      if (tappedTwice) {
+	        // If the user tapped twice within the last X milliseconds
+	        // We consider this a double tap
+	        return true;
+	      }
+	    }
+	  }, {
 	    key: 'onTouchStartHandler',
 	    value: function onTouchStartHandler(tileIndex, e) {
 	      console.log('Called %conTouchStartHandler(tileIndex: ' + tileIndex + ', e: ' + e + ')', _utils2.default.getConsoleStyle('code'));
-	      window.e = e.changedTouches;
-	      this.onTileDownHandler(tileIndex, { pageX: e.touches[0].pageX });
+	      this.lastTouchTimes.push(performance.now());
+	      var tappedTwice = this.isDoubleTap();
+	      if (tappedTwice) {
+	        this.onDoubleClick(tileIndex);
+	      } else {
+	        this.onTileDownHandler(tileIndex, { pageX: e.touches[0].pageX });
+	      }
 	      e.preventDefault();
 	    }
 	  }, {
