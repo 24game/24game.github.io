@@ -20015,6 +20015,7 @@
 	          }
 	        }
 	      }
+	      this.updateState();
 	    }
 	  }, {
 	    key: 'clearParentheses',
@@ -20485,10 +20486,13 @@
 	      if (this.lastTouchTimes.length <= 1) {
 	        return false;
 	      }
-	      var tappedTwice = this.lastTouchTimes[1] - this.lastTouchTimes[0] <= 300;
+	      var lastTouchTimesCount = this.lastTouchTimes.length;
+	      var tappedTwice = this.lastTouchTimes[lastTouchTimesCount - 1] - this.lastTouchTimes[lastTouchTimesCount - 2] <= 300;
 	      // Only keep the last 2 elements at all times
 	      this.lastTouchTimes = this.lastTouchTimes.slice(-2);
+	      window.lastTouchTimes = this.lastTouchTimes;
 	      if (tappedTwice) {
+	        this.lastTouchTimes = [];
 	        // If the user tapped twice within the last X milliseconds
 	        // We consider this a double tap
 	        return true;
@@ -20499,6 +20503,7 @@
 	    value: function onTouchStartHandler(tileIndex, e) {
 	      console.log('Called %conTouchStartHandler(tileIndex: ' + tileIndex + ', e: ' + e + ')', _utils2.default.getConsoleStyle('code'));
 	      this.lastTouchTimes.push(performance.now());
+	      window.lastTouchTimes = this.lastTouchTimes;
 	      var tappedTwice = this.isDoubleTap();
 	      if (tappedTwice) {
 	        this.onDoubleClick(tileIndex);
