@@ -20086,7 +20086,7 @@
 	  }, {
 	    key: 'onTouchMove',
 	    value: function onTouchMove(e) {
-	      log.debug('Called %conTouchMove.', _utils2.default.getConsoleStyle('code'));
+	      console.log('Called %conTouchMove.', _utils2.default.getConsoleStyle('code'));
 	      this.onPointerMove(e.touches[0]);
 	    }
 
@@ -30706,7 +30706,7 @@
 /* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -30717,6 +30717,10 @@
 	var _react = __webpack_require__(6);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _utils = __webpack_require__(170);
+
+	var _utils2 = _interopRequireDefault(_utils);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30732,25 +30736,96 @@
 	  function Operator(props) {
 	    _classCallCheck(this, Operator);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Operator).call(this, props));
-	    // this.cycleOperatorFn = this.cycleOperatorFn.bind(this);
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Operator).call(this, props));
+
+	    _this.onTouchStart = _this.onTouchStart.bind(_this);
+	    _this.onMouseEnter = _this.onMouseEnter.bind(_this);
+	    _this.onMouseLeave = _this.onMouseLeave.bind(_this);
+	    _this.onTouchMove = _this.onTouchMove.bind(_this);
+	    _this.onMouseDown = _this.onMouseDown.bind(_this);
+	    _this.onMouseUp = _this.onMouseUp.bind(_this);
+	    _this.onClick = _this.onClick.bind(_this);
+	    _this.state = {};
+	    return _this;
 	  }
 
 	  _createClass(Operator, [{
-	    key: "render",
+	    key: 'onTouchStart',
+	    value: function onTouchStart(e) {
+	      this.beginHoverEffect();
+	    }
+	  }, {
+	    key: 'onMouseEnter',
+	    value: function onMouseEnter(e) {
+	      console.log('Called onMouseEnter.');
+	      this.beginHoverEffect();
+	    }
+	  }, {
+	    key: 'onMouseLeave',
+	    value: function onMouseLeave(e) {
+	      this.endHoverEffect();
+	    }
+	  }, {
+	    key: 'onTouchMove',
+	    value: function onTouchMove(e) {
+	      this.endHoverEffect();
+	    }
+	  }, {
+	    key: 'onMouseDown',
+	    value: function onMouseDown(e) {
+	      this.beginHoverEffect();
+	    }
+	  }, {
+	    key: 'onMouseUp',
+	    value: function onMouseUp(e) {
+	      this.endHoverEffect();
+	    }
+	  }, {
+	    key: 'onClick',
+	    value: function onClick(e) {
+	      this.endHoverEffect();
+	      this.performClick();
+	    }
+	  }, {
+	    key: 'performClick',
+	    value: function performClick() {
+	      console.log('Called %cperformClick on tile index ' + this.props.index + ' with current operator ' + this.props.operator + '.', _utils2.default.getConsoleStyle('code'));
+	      this.props.cycleOperatorFn(this.props.index, this.props.operator);
+	    }
+	  }, {
+	    key: 'beginHoverEffect',
+	    value: function beginHoverEffect() {
+	      console.log('Called %cbeginHoverEffect.', _utils2.default.getConsoleStyle('code'));
+	      this.setState({ hovering: true });
+	    }
+	  }, {
+	    key: 'endHoverEffect',
+	    value: function endHoverEffect() {
+	      console.log('Called %cendHoverEffect.', _utils2.default.getConsoleStyle('code'));
+	      this.setState({ hovering: false });
+	    }
+	  }, {
+	    key: 'render',
 	    value: function render() {
+	      var isHovering = this.state.hovering;
 	      return _react2.default.createElement(
-	        "div",
+	        'div',
 	        {
-	          className: "operator-tile",
-	          onClick: this.props.cycleOperatorFn.bind(null, this.props.index, this.props.operator),
-	          zIndex: "1" },
+	          className: 'operator-tile ' + (isHovering ? 'operator-hover' : ''),
+	          onTouchStart: this.onTouchStart,
+	          onMouseEnter: this.onMouseEnter,
+	          onMouseLeave: this.onMouseLeave,
+	          onTouchMove: this.onTouchMove,
+	          onMouseDown: this.onMouseDown,
+	          onMouseUp: this.onMouseUp,
+	          onClick: this.onClick,
+	          zIndex: '1' },
 	        _react2.default.createElement(
-	          "span",
-	          { className: "unselectable operator" },
-	          " ",
+	          'span',
+	          { className: 'unselectable operator' },
+	          ' ',
 	          this.props.operator,
-	          " "
+	          ' '
 	        )
 	      );
 	    }
@@ -33900,19 +33975,19 @@
 	          null,
 	          _react2.default.createElement(
 	            "a",
-	            { href: "https://github.com/24game/twentyfour" },
+	            { href: "https://github.com/24game/twentyfour", target: "_blank" },
 	            "TwentyFour"
 	          ),
 	          " was developed by ",
 	          _react2.default.createElement(
 	            "a",
-	            { href: "https://github.com/jasonpang" },
+	            { href: "https://github.com/jasonpang", target: "_blank" },
 	            "Jason Pang"
 	          ),
 	          " and ",
 	          _react2.default.createElement(
 	            "a",
-	            { href: "https://github.com/cbass10liu" },
+	            { href: "https://github.com/cbass10liu", target: "_blank" },
 	            "Sebastian Liu"
 	          ),
 	          "!"
@@ -34065,10 +34140,42 @@
 	  _createClass(Share, [{
 	    key: "render",
 	    value: function render() {
+	      var url = encodeURIComponent("https://24game.github.io/");
+	      var fbshare = "https://www.facebook.com/sharer/sharer.php?u=" + url;
+	      var twittershare = "https://twitter.com/share?url=" + url;
+	      var googleshare = "https://plus.google.com/share?url=" + url;
 	      return _react2.default.createElement(
-	        "p",
-	        { className: "centered" },
-	        "Share!"
+	        "section",
+	        { className: "centered footer-details" },
+	        _react2.default.createElement(
+	          "p",
+	          null,
+	          _react2.default.createElement(
+	            "a",
+	            { className: "sharelink", href: fbshare, target: "_blank" },
+	            "Facebook"
+	          ),
+	          _react2.default.createElement(
+	            "span",
+	            { className: "divider" },
+	            " · "
+	          ),
+	          _react2.default.createElement(
+	            "a",
+	            { className: "sharelink", href: twittershare, target: "_blank" },
+	            "Twitter"
+	          ),
+	          _react2.default.createElement(
+	            "span",
+	            { className: "divider" },
+	            " · "
+	          ),
+	          _react2.default.createElement(
+	            "a",
+	            { className: "sharelink", href: googleshare, target: "_blank" },
+	            "Google"
+	          )
+	        )
 	      );
 	    }
 	  }]);

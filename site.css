@@ -171,11 +171,11 @@ code {
     background-color: transparent;
     color: #37291a;
     transition: inherit; }
-  .operator-tile:hover {
+  .operator-tile.operator-hover {
     background-color: #d8dadb;
     color: #494f51;
     border: 4px dashed #afb5b7; }
-    .operator-tile:hover .operator {
+    .operator-tile.operator-hover .operator {
       font-size: 4.6575rem;
       color: inherit; }
   .operator-tile:active {
@@ -268,16 +268,16 @@ code {
   .footer .footer-item {
     text-transform: lowercase;
     letter-spacing: 0px;
-    color: #707070;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem; }
+    color: #707070; }
     .footer .footer-item:hover {
       font-weight: 350;
       color: black; }
   .footer .divider {
-    color: #b0b0b0; }
+    color: #b0b0b0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem; }
   .footer .footer-details {
-    padding: 1.5rem;
+    font-size: 13.3px;
     color: #575757; }
   .footer section a {
     text-decoration: none;
