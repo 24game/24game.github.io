@@ -74,7 +74,12 @@ h1 {
   font-size: 4rem;
   color: #37291a;
   letter-spacing: 0.3rem;
-  word-spacing: 1rem; }
+  word-spacing: 1rem;
+  margin-bottom: 0rem; }
+
+h3 {
+  margin: 0.5rem;
+  color: #493622; }
 
 section.instructions {
   font-family: "Montserrat", sans-serif;
@@ -257,3 +262,26 @@ code {
   transition: background-color 75ms ease-out;
   transition: font-size 75ms ease-in-out;
   width: 5rem; }
+
+.footer {
+  margin: 1rem; }
+  .footer .footer-item {
+    text-transform: lowercase;
+    letter-spacing: 0px;
+    color: #707070;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem; }
+    .footer .footer-item:hover {
+      font-weight: 350;
+      color: black; }
+  .footer .divider {
+    color: #b0b0b0; }
+  .footer .footer-details {
+    padding: 1.5rem;
+    color: #575757; }
+  .footer section a {
+    text-decoration: none;
+    color: #707070; }
+    .footer section a:hover {
+      color: black;
+      border-bottom: 1px dotted; }
