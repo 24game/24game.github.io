@@ -271,7 +271,8 @@ code {
     color: #707070; }
     .footer .footer-item:hover {
       font-weight: 350;
-      color: black; }
+      color: black;
+      border-bottom: 1px dotted; }
   .footer .divider {
     color: #b0b0b0;
     padding-left: 0.5rem;
@@ -285,3 +286,15 @@ code {
     .footer section a:hover {
       color: black;
       border-bottom: 1px dotted; }
+  .footer section #fbShare:hover {
+    color: #3B5998;
+    font-weight: 350;
+    border-bottom: 1px dotted #3B5998; }
+  .footer section #twitterShare:hover {
+    color: #55ACEE;
+    font-weight: 350;
+    border-bottom: 1px dotted #55ACEE; }
+  .footer section #googleShare:hover {
+    color: #DD4B39;
+    font-weight: 350;
+    border-bottom: 1px dotted #DD4B39; }

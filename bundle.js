@@ -145,7 +145,7 @@
 	        _react2.default.createElement(
 	          "h3",
 	          { className: "larger" },
-	          "Use ",
+	          "use ",
 	          _react2.default.createElement(
 	            "strong",
 	            { className: "larger" },
@@ -170,7 +170,17 @@
 	              "÷"
 	            )
 	          ),
-	          " to make 24."
+	          _react2.default.createElement(
+	            "code",
+	            { id: "left-parenthesis" },
+	            "("
+	          ),
+	          _react2.default.createElement(
+	            "code",
+	            { id: "right-parenthesis" },
+	            ")"
+	          ),
+	          " to make 24"
 	        )
 	      );
 	    }
@@ -34152,8 +34162,8 @@
 	          null,
 	          _react2.default.createElement(
 	            "a",
-	            { className: "sharelink", href: fbshare, target: "_blank" },
-	            "Facebook"
+	            { id: "fbShare", href: fbshare, target: "_blank" },
+	            "facebook"
 	          ),
 	          _react2.default.createElement(
 	            "span",
@@ -34162,8 +34172,8 @@
 	          ),
 	          _react2.default.createElement(
 	            "a",
-	            { className: "sharelink", href: twittershare, target: "_blank" },
-	            "Twitter"
+	            { id: "twitterShare", href: twittershare, target: "_blank" },
+	            "twitter"
 	          ),
 	          _react2.default.createElement(
 	            "span",
@@ -34172,8 +34182,8 @@
 	          ),
 	          _react2.default.createElement(
 	            "a",
-	            { className: "sharelink", href: googleshare, target: "_blank" },
-	            "Google"
+	            { id: "googleShare", href: googleshare, target: "_blank" },
+	            "google"
 	          )
 	        )
 	      );
