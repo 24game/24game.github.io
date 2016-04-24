@@ -65,19 +65,25 @@
 /* Variables */
 html {
   font-size: 14px;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+  height: 100%; }
 
 body {
   font-family: "Montserrat", sans-serif; }
 
+.title {
+  margin-top: 10vh;
+  margin-bottom: 5vh; }
+
 h1 {
-  font-size: 4rem;
+  font-size: 3.25vw;
   color: #37291a;
   letter-spacing: 0.3rem;
   word-spacing: 1rem;
-  margin-bottom: 0rem; }
+  margin-bottom: 0; }
 
 h3 {
+  font-size: 1.625vw;
   margin: 0.5rem;
   color: #493622; }
 
@@ -89,7 +95,8 @@ section.instructions {
   color: #5a422b;
   background: #f0e8e0;
   padding: 10px 50px;
-  border-radius: 8px; }
+  border-radius: 8px;
+  margin-bottom: 7vh; }
   section.instructions p {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem; }
@@ -109,8 +116,8 @@ code {
   font-size: inherit;
   color: #37291a;
   border-radius: 4px;
-  margin-left: 0.125rem;
-  margin-right: 0.125rem; }
+  margin-left: 0.125vw;
+  margin-right: 0.125vw; }
   code:first-child {
     margin-left: 0; }
   code:last-child {
@@ -121,14 +128,14 @@ code {
 
 .parenthesis-tile {
   position: relative;
-  font-size: 4.05rem;
+  font-size: 3.15vw;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: initial;
   width: 2rem;
-  height: 9rem;
-  margin: 0.5rem;
+  height: 7vw;
+  margin: 0.5vw;
   border: initial;
   border-radius: 35%;
   background-color: initial;
@@ -148,14 +155,14 @@ code {
 
 .operator-tile {
   position: relative;
-  font-size: 4.05rem;
+  font-size: 3.15vw;
   cursor: pointer;
   font-family: "Times New Roman";
   font-weight: 900;
   color: #879093;
-  width: 6rem;
-  height: 6rem;
-  margin: 0.5rem;
+  width: 4.62vw;
+  height: 4.62vw;
+  margin: 0.5vw;
   border: 4px dashed transparent;
   border-radius: 50%;
   background-color: initial;
@@ -176,26 +183,26 @@ code {
     color: #494f51;
     border: 4px dashed #afb5b7; }
     .operator-tile.operator-hover .operator {
-      font-size: 4.6575rem;
+      font-size: 3.6225vw;
       color: inherit; }
   .operator-tile:active {
     background: #afb5b7;
     border: 4px dashed #879093; }
     .operator-tile:active .operator {
-      font-size: 5.589rem; }
+      font-size: 4.347vw; }
 
 .number-tile {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 1vw;
+  margin-right: 1vw;
   position: relative;
-  font-size: 4.05rem;
+  font-size: 3.15vw;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: #37291a;
-  width: 9rem;
-  height: 9rem;
-  margin: 0.5rem;
+  width: 7vw;
+  height: 7vw;
+  margin: 0.5vw;
   border: 4px dashed transparent;
   border-radius: 6px;
   background-color: #f0e8e0;
@@ -219,20 +226,16 @@ code {
     background-color: #eaf0f5;
     border: 4px dashed #94b0cc;
     color: #273d53; }
-  .number-tile.enclosable {
-    background-color: #c0ccbb;
-    border: 4px dashed #7d9572;
-    color: #10130f; }
 
 .equal-sign {
   position: relative;
-  font-size: 4.86rem;
+  font-size: 3.78vw;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: #37291a;
   width: initial;
-  height: 9rem;
+  height: 7vw;
   margin: 4rem;
   border: initial;
   border-radius: initial;
@@ -248,7 +251,7 @@ code {
 
 .result-display {
   position: relative;
-  font-size: 4.86rem;
+  font-size: 3.78vw;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
@@ -260,23 +263,26 @@ code {
   border-radius: initial;
   background-color: transparent;
   transition: background-color 75ms ease-out;
-  transition: font-size 75ms ease-in-out;
-  width: 5rem; }
+  transition: font-size 75ms ease-in-out; }
+
+.success {
+  color: #3B5998; }
 
 .footer {
-  margin: 1rem; }
+  font-weight: 300;
+  margin: 0.77778rem; }
   .footer .footer-item {
     text-transform: lowercase;
     letter-spacing: 0px;
     color: #707070; }
     .footer .footer-item:hover {
-      font-weight: 350;
+      font-weight: 300;
       color: black;
       border-bottom: 1px dotted; }
   .footer .divider {
     color: #b0b0b0;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem; }
+    padding-left: 0.38889vw;
+    padding-right: 0.38889vw; }
   .footer .footer-details {
     font-size: 13.3px;
     color: #575757; }
@@ -288,13 +294,13 @@ code {
       border-bottom: 1px dotted; }
   .footer section #fbShare:hover {
     color: #3B5998;
-    font-weight: 350;
+    font-weight: 300;
     border-bottom: 1px dotted #3B5998; }
   .footer section #twitterShare:hover {
     color: #55ACEE;
-    font-weight: 350;
+    font-weight: 300;
     border-bottom: 1px dotted #55ACEE; }
   .footer section #googleShare:hover {
     color: #DD4B39;
-    font-weight: 350;
+    font-weight: 300;
     border-bottom: 1px dotted #DD4B39; }
