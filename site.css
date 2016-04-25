@@ -72,8 +72,7 @@ body {
   font-family: "Montserrat", sans-serif; }
 
 .title {
-  margin-top: 10vh;
-  margin-bottom: 5vh; }
+  margin-top: 10vh; }
 
 h1 {
   font-size: 3.25vw;
@@ -87,28 +86,9 @@ h3 {
   margin: 0.5rem;
   color: #493622; }
 
-section.instructions {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 1.3rem;
-  word-spacing: 0.08rem;
-  color: #5a422b;
-  background: #f0e8e0;
-  padding: 10px 50px;
-  border-radius: 8px;
-  margin-bottom: 7vh; }
-  section.instructions p {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem; }
-
-section.instructions + section.game {
-  margin-top: 3rem;
-  padding: 1rem; }
-
 section.game {
   font-family: "Droid Sans", sans-serif;
   background: white;
-  padding: 1.43rem;
   border-radius: 6px; }
 
 code {
@@ -122,9 +102,6 @@ code {
     margin-left: 0; }
   code:last-child {
     margin-right: 0; }
-
-.drop-container {
-  position: relative; }
 
 .parenthesis-tile {
   position: relative;
@@ -263,7 +240,8 @@ code {
   border-radius: initial;
   background-color: transparent;
   transition: background-color 75ms ease-out;
-  transition: font-size 75ms ease-in-out; }
+  transition: font-size 75ms ease-in-out;
+  width: 5rem; }
 
 .success {
   color: #3B5998; }
